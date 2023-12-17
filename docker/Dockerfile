@@ -2,7 +2,7 @@
 ARG ROS_DISTRO=humble
 
 ###########################
-# Base Image for festival #
+# Base Image for snapbot #
 ###########################
 FROM nvidia/cudagl:11.1.1-base-ubuntu20.04 as gpu
 FROM osrf/ros:${ROS_DISTRO}-desktop as base
@@ -46,7 +46,7 @@ RUN chmod -R 0700 /tmp/runtime-root
 ENV NO_AT_BRIDGE 1
 
 ##############################
-# Overlay Image for festival #
+# Overlay Image for snapbot #
 ##############################
 FROM base AS overlay
 

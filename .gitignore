@@ -1,19 +1,4 @@
-<<<<<<< HEAD
-*.pt
 *.pyc
-=======
 .colcon/
 .vscode/
-**/__pycache__/
-<<<<<<< HEAD
->>>>>>> 76c3cf2... Update docker env
-=======
 *.pt
-<<<<<<< HEAD
-**/festival_ur_yolo/
-<<<<<<< HEAD
->>>>>>> 8929e65... Add festival_gym
-=======
-=======
->>>>>>> bd76568... Add festival_gym
->>>>>>> 4b4e12a... Add festival_gym

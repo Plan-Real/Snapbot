@@ -19,7 +19,7 @@ def generate_launch_description():
     print("urdf_file_name : {}".format(urdf_file_name))
 
     urdf = os.path.join(
-        get_package_share_directory("festival_ur_description"), "urdf", urdf_file_name
+        get_package_share_directory("snapbot_description"), "urdf", urdf_file_name
     )
 
     # Major refactor of the robot_state_publisher
@@ -30,7 +30,7 @@ def generate_launch_description():
     rsp_params = {"robot_description": robot_desc}
 
     rviz_config_dir = os.path.join(
-        get_package_share_directory("festival_ur_bringup"), "rviz", "model.rviz"
+        get_package_share_directory("snapbot_bringup"), "rviz", "model.rviz"
     )
 
     return LaunchDescription(
