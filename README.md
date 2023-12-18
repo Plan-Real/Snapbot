@@ -19,7 +19,7 @@ You can watch the video of our project. Click here.
 
 
 ### Photography
-|                         **AnimeGAN**                       | **selecting frame**                                          |  **print**                                          |
+|                         **AnimeGAN**                       | **selecting frame**                                          |  **printing image**                                          |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |  <img src="https://github.com/Plan-Real/Snapbot/assets/98142496/77f31169-ed0d-4bea-b66e-f01fe0013e6f" />     |     ![selecting frame](https://github.com/Plan-Real/Snapbot/assets/98142496/5e8ecf4f-98a3-4595-aa87-05c893b96846)   |  ![print photo](https://github.com/Plan-Real/Snapbot/assets/98142496/54a578f7-4e60-412c-a3fc-cc3be6d27c2f) |
 
@@ -47,12 +47,15 @@ please, check your [.env](https://github.com/Plan-Real/Snapbot/blob/develop/.env
 
 #### Run
 
-First, To run our program, you should prepare the computer equipped with a GPU and UR.
+To run our program, you should prepare the computer equipped with a GPU and UR.
 
-
-'''
-$ docker compose build dev
-$ docker compose run dev
-'''
+###### docker build
+```
+docker compose build dev
+```
+###### docker run
+```
+docker compose run dev
+```
 
 if you can't run this docker file, you can fix the error by following [ROS_dev_template](https://github.com/Kim-JeongHan/ROS_dev_template) instruction.
