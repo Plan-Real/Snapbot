@@ -17,6 +17,7 @@ You can watch the video of our project. Click here.
 ### Manipulator Control
 <img src="https://github.com/Plan-Real/Snapbot/assets/98142496/f2c28590-5a2b-4454-bc70-96c2c4ea1181" width="80%"/>
 
+
 ### Photography
 |                         **AnimeGAN**                       | **selecting frame**                                          |  **print**                                          |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -27,7 +28,6 @@ You can watch the video of our project. Click here.
 ## Web Server
 If you are curious about the contents related to the web server, click this link.
 
-[Festival server](https://github.com/Plan-Real/festival_server)
 
 
 
@@ -37,5 +37,22 @@ If you are curious about the contents related to the web server, click this link
 #### install
 
 ```
-git clone --recurse-submodules https://github.com/Plan-Real/festival
+git clone --recurse-submodules https://github.com/Plan-Real/Snapbot.git
 ```
+
+Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym), then follow the installation instructions in the documentation. We highly recommend using a conda environment to simplify set up.
+
+you have to download nvidia issac-gym in this repository.
+please, check your [.env](https://github.com/Plan-Real/Snapbot/blob/develop/.env) file when you install the isaac gym.
+
+#### Run
+
+First, To run our program, you should prepare the computer equipped with a GPU and UR.
+
+
+'''
+$ docker compose build dev
+$ docker compose run dev
+'''
+
+if you can't run this docker file, you can fix the error by following [ROS_dev_template](https://github.com/Kim-JeongHan/ROS_dev_template) instruction.
