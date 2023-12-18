@@ -10,8 +10,9 @@
 
 ## Abstract
 
-[![thumbnail](https://github.com/Plan-Real/Snapbot/assets/98142496/27023b42-f5d0-4ed7-a711-d1a5a00fed4c)](https://drive.google.com/file/d/13aQ0mCv9reuY-JInxXiSdqex67w7G5Ey/view?usp=drive_link)
 
+You can watch the video of our project. Click here.
+[![thumbnail](https://github.com/Plan-Real/Snapbot/assets/98142496/27023b42-f5d0-4ed7-a711-d1a5a00fed4c)](https://drive.google.com/file/d/13aQ0mCv9reuY-JInxXiSdqex67w7G5Ey/view?usp=drive_link)
 
 ### Manipulator Control
 <img src="https://github.com/Plan-Real/Snapbot/assets/98142496/f2c28590-5a2b-4454-bc70-96c2c4ea1181" width="80%"/>
@@ -23,8 +24,8 @@
 
 
 
-## Festival Server
-If you are curious about the contents related to the festival server, click this link.
+## Web Server
+If you are curious about the contents related to the web server, click this link.
 
 [Festival server](https://github.com/Plan-Real/festival_server)
 
