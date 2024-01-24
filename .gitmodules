@@ -1,9 +1,9 @@
-[submodule "festival_r2/festival_yolo"]
-	path = festival_r2/festival_yolo
-	url = https://github.com/Plan-Real/yolo.git
 [submodule "IsaacGymEnvs"]
 	path = IsaacGymEnvs
 	url = https://github.com/NVIDIA-Omniverse/IsaacGymEnvs.git
-[submodule "festival_r2/festival_gym"]
-	path = festival_r2/festival_gym
-	url = https://github.com/Plan-Real/festival-gym.git
+[submodule "snapbot/snapbot_gym"]
+	path = snapbot/snapbot_gym
+	url = https://github.com/Plan-Real/snapbot_gym.git
+[submodule "snapbot/snapbot_yolo"]
+	path = snapbot/snapbot_yolo
+	url = https://github.com/Plan-Real/snapbot_yolo.git
