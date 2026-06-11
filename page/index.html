@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Snapbot: Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography">
+  <meta name="description" content="Snapbot couples a UR3 robot arm with computational photography to jointly optimize focus, exposure, composition and enhancement for dynamic human subjects.">
+  <meta name="keywords" content="Human-Robot Interaction, Robotic Photography, Computational Photography, UR3, Autofocus, Autoexposure, Camera Composition, Image Enhancement, HRI 2024, Hanyang University">
+  <meta name="author" content="Chanyeok Choi, Jeonghan Kim, Yunjae Nam, Youngmoon Lee">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Team PlanR, Hanyang University">
+  <meta property="og:title" content="Snapbot: Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography">
+  <meta property="og:description" content="Snapbot couples a UR3 robot arm with computational photography to jointly optimize focus, exposure, composition and enhancement for dynamic human subjects.">
+  <meta property="og:url" content="https://plan-real.github.io/Snapbot/">
+  <meta property="og:image" content="https://plan-real.github.io/Snapbot/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Snapbot - a robot arm photographer that dynamically captures and enhances photos of people">
+  <meta property="article:published_time" content="2024-03-11T00:00:00.000Z">
+  <meta property="article:author" content="Chanyeok Choi">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="Human-Robot Interaction">
+  <meta property="article:tag" content="Computational Photography">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Snapbot: Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography">
+  <meta name="twitter:description" content="Snapbot couples a UR3 robot arm with computational photography to jointly optimize focus, exposure, composition and enhancement for dynamic human subjects.">
+  <meta name="twitter:image" content="https://plan-real.github.io/Snapbot/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="Snapbot - a robot arm photographer that dynamically captures and enhances photos of people">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="Snapbot : Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography">
+  <meta name="citation_author" content="Choi, Chanyeok">
+  <meta name="citation_author" content="Kim, Jeonghan">
+  <meta name="citation_author" content="Nam, Yunjae">
+  <meta name="citation_author" content="Lee, Youngmoon">
+  <meta name="citation_publication_date" content="2024/03/11">
+  <meta name="citation_conference_title" content="Companion of the 2024 ACM/IEEE International Conference on Human-Robot Interaction (HRI '24 Companion)">
+  <meta name="citation_firstpage" content="327">
+  <meta name="citation_lastpage" content="331">
+  <meta name="citation_doi" content="10.1145/3610978.3640712">
+  <meta name="citation_pdf_url" content="https://plan-real.github.io/Snapbot/static/pdfs/paper.pdf">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <title>Snapbot: Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography</title>
+
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Snapbot: Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography",
+    "description": "Snapbot couples a UR3 robot arm with computational photography to jointly optimize focus, exposure, composition and enhancement for dynamic human subjects.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Chanyeok Choi",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Hanyang University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Jeonghan Kim",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Hanyang University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Yunjae Nam",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Hanyang University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Youngmoon Lee",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Hanyang University"
+        }
+      }
+    ],
+    "datePublished": "2024-03-11",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ACM/IEEE International Conference on Human-Robot Interaction (HRI '24 Companion)"
+    },
+    "url": "https://plan-real.github.io/Snapbot/",
+    "image": "https://plan-real.github.io/Snapbot/static/images/social_preview.png",
+    "keywords": ["Human-Robot Interaction", "Robotic Photography", "Computational Photography", "UR3", "Image Enhancement"],
+    "abstract": "Photography remains an expert area requiring right focus, exposure, composition, and even post-processing. Yet, robotic automation can enable precise camera manipulation, focus and exposure adjustment, camera composition, and post-processing by leveraging state-of-the-art computational photography. Existing proposals for robotic photography focus on adjusting camera angles for static portraits or developing image evaluation metrics, thus falling short in capturing dynamic human robot interactions. This paper describes the design and implementation of Snapbot, a human robot interaction system designed specifically for computational photography. Snapbot dynamically detects face and pose for exposure and focus and interactively controls robot arm for camera composition to perform image scoring and enhancing. As perception, control, and computational photography form an end-to-end pipeline, Snapbot promises a new future in which image focus, exposure, composition, and generation can be jointly optimized as a unified process. We have implemented and deployed Snapbot on a UR3 demonstrating the mean image quality score is 1.51x compared to aesthetic visual analysis dataset. We also perform ablation study to analyze the impact of each stage of Snapbot both visually and quantitatively.",
+    "identifier": "https://doi.org/10.1145/3610978.3640712",
+    "isAccessibleForFree": true,
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://plan-real.github.io/Snapbot/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Human-Robot Interaction"
+      },
+      {
+        "@type": "Thing",
+        "name": "Computational Photography"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Team PlanR, Hanyang University",
+    "url": "https://github.com/Plan-Real",
+    "logo": "https://plan-real.github.io/Snapbot/static/images/favicon.ico",
+    "sameAs": [
+      "https://github.com/Plan-Real"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Team PlanR">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Team PlanR</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="https://github.com/Plan-Real/festival2" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Manipulator Photographer</h5>
+            <p>Robot photo studio with AI stylization and pose guidance, deployed at the 2023 Hanyang ERICA Spring Festival flea market.</p>
+            <span class="work-venue">Team PlanR &middot; 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://github.com/Plan-Real/festival_server" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Festival Server</h5>
+            <p>Web service powering the robot photo studio: photo selection, stylization, framing and on-site printing.</p>
+            <span class="work-venue">Team PlanR &middot; 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Snapbot: Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://github.com/Angledsugar" target="_blank">Chanyeok Choi</a>,</span>
+              <span class="author-block">
+                <a href="https://github.com/Kim-JeongHan" target="_blank">Jeonghan Kim</a>,</span>
+              <span class="author-block">
+                <a href="https://github.com/ujma1234" target="_blank">Yunjae Nam</a>,</span>
+              <span class="author-block">
+                <a href="https://sites.google.com/umich.edu/youngmoonlee/home" target="_blank">Youngmoon Lee</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Hanyang University, Ansan, South Korea<br>HRI '24 Companion &middot; Boulder, CO, USA &middot; March 11&ndash;14, 2024</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="static/pdfs/paper.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://doi.org/10.1145/3610978.3640712" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-doi"></i>
+                </span>
+                <span>ACM DL</span>
+              </a>
+            </span>
+
+            <span class="link-block">
+              <a href="https://github.com/Plan-Real/Snapbot" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code</span>
+            </a>
+          </span>
+
+          <span class="link-block">
+            <a href="https://drive.google.com/file/d/13aQ0mCv9reuY-JInxXiSdqex67w7G5Ey/view" target="_blank"
+            class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <i class="fas fa-video"></i>
+            </span>
+            <span>Demo Video</span>
+          </a>
+        </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser image -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/snapbot_teaser.jpg" alt="Snapbot tracks a moving person with a UR3 arm and compares camera composition before and after the subject moves" style="width: 100%;"/>
+      <h2 class="subtitle has-text-centered">
+        Snapbot leverages state-of-the-art computational photography in a human robot interaction system to
+        (a)&nbsp;dynamically capture human subjects, (b)&nbsp;interactively adjust camera composition as the subject moves,
+        and (c)&nbsp;generate enhanced images in real time.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser image -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Photography remains an expert area requiring right focus, exposure, composition, and even post-processing.
+            Yet, robotic automation can enable precise camera manipulation, focus and exposure adjustment, camera
+            composition, and post-processing by leveraging state-of-the-art computational photography. Existing
+            proposals for robotic photography focus on adjusting camera angles for static portraits or developing
+            image evaluation metrics, thus falling short in capturing dynamic human robot interactions. This paper
+            describes the design and implementation of <strong>Snapbot</strong>, a human robot interaction system designed
+            specifically for computational photography. Snapbot dynamically detects face and pose for exposure and
+            focus and interactively controls robot arm for camera composition to perform image scoring and enhancing.
+            As perception, control, and computational photography form an end-to-end pipeline, Snapbot promises a new
+            future in which image focus, exposure, composition, and generation can be jointly optimized as a unified
+            process. We have implemented and deployed Snapbot on a UR3 demonstrating the mean image quality score is
+            1.51&times; compared to aesthetic visual analysis dataset. We also perform ablation study to analyze the
+            impact of each stage of Snapbot both visually and quantitatively.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- System overview -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How Snapbot Works</h2>
+        <img src="static/images/snapbot_overview.png" alt="Snapbot system overview: perception, control, and computational photography stages" style="max-width: 75%;"/>
+        <div class="content has-text-justified" style="margin-top: 1.5rem;">
+          <p>
+            Snapbot integrates three stages into a single real-time pipeline:
+          </p>
+          <ul>
+            <li>
+              <strong>Perception.</strong> A face detector (YOLOv8-face) localizes the subject in every frame.
+              <em>Autoexposure</em> keeps the average intensity of the detected facial region stable even at the lower
+              resolutions used for real-time operation, <em>autofocus</em> recovers degraded frames with a DNN-based
+              image focus model, and an algorithm-based <em>head pose estimator</em> matches live facial landmarks
+              against 2,223 pre-constructed pose samples via quadtree search.
+            </li>
+            <li>
+              <strong>Control.</strong> The perceived facial direction vector is encoded into a transformation matrix
+              that yields the optimal camera <em>composition</em>. A closed-loop <em>inverse kinematics</em> solver
+              based on the damped pseudo-inverse avoids singularities, and a moving average filter smooths the control
+              input so the <em>manipulator</em> follows a moving person both safely and stably.
+            </li>
+            <li>
+              <strong>Computational Photography.</strong> An <em>Image Score Model (ISM)</em>, trained on the portrait
+              category of the AVA dataset, filters burst shots by aesthetic quality, and an <em>Enhanced Image
+              Generative Model (EIGM)</em> applies exposure compensation, hue and saturation adjustment, color space
+              conversion, tone mapping, and gamma correction&mdash;so the selected photo looks professionally retouched.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End system overview -->
+
+
+<!-- Camera composition -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dynamic Camera Composition</h2>
+        <img src="static/images/snapbot_composition.png" alt="Simulation of camera composition: the camera moves in response to the orientation and position of the human"/>
+        <div class="content has-text-justified" style="margin-top: 1.5rem;">
+          <p>
+            As the subject moves and turns, Snapbot continuously re-solves for the camera pose that keeps the person
+            framed along their facial direction: (a) shows the camera position relative to the initial human pose, and
+            (b)&ndash;(d) show how the composition adapts to human movement while a workspace constraint keeps the
+            manipulator within its reachable range. This closed-loop composition is what allows Snapbot to capture
+            <em>dynamic</em> human robot interactions rather than static portraits.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End camera composition -->
+
+
+<!-- Interactive pipeline -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">From Tracking to a Printed Photo</h2>
+        <div class="content has-text-centered">
+          <p>
+            Around the Snapbot pipeline, Team PlanR built a complete robot photo studio experience:
+            the robot tracks and shoots, then visitors pick a photo, apply AI stylization, choose a frame, and take the print home.
+          </p>
+        </div>
+        <div class="columns is-multiline is-centered">
+          <div class="column is-half">
+            <img src="static/images/pipeline_tracking.jpg" alt="UR3 robot arm tracking a person, shown alongside the simulation view" loading="lazy"/>
+            <p class="is-size-6 has-text-grey">1. The robot arm tracks the subject in real time</p>
+          </div>
+          <div class="column is-half">
+            <img src="static/images/pipeline_stylize.jpg" alt="Photo selection screen with AI stylized image variants" loading="lazy"/>
+            <p class="is-size-6 has-text-grey">2. Burst shots are scored and stylized with AI</p>
+          </div>
+          <div class="column is-half">
+            <img src="static/images/pipeline_frame.jpg" alt="Frame selection screen of the photo studio interface" loading="lazy"/>
+            <p class="is-size-6 has-text-grey">3. The visitor picks a frame on the touchscreen</p>
+          </div>
+          <div class="column is-half">
+            <img src="static/images/pipeline_print.jpg" alt="Photo printer producing the final framed photo" loading="lazy"/>
+            <p class="is-size-6 has-text-grey">4. The enhanced photo is printed on the spot</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End interactive pipeline -->
+
+
+<!-- Results -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <img src="static/images/snapbot_comparison.jpg" alt="Ablation study photos: effects of autofocus, robotic composition, image score model, and enhancement model" loading="lazy"/>
+        <div class="content has-text-justified" style="margin-top: 1.5rem;">
+          <p>
+            Snapbot was implemented on a <strong>UR3 manipulator</strong> with a RealSense D435 camera and a CN0364
+            touchscreen for interaction, running on an Intel i5-6600K CPU and a Titan RTX GPU. The ablation above shows
+            the effect of each stage: (a) autofocus, (b) robotic camera composition vs. a fixed camera,
+            (c) the Image Score Model, and (d) the Enhanced Image Generative Model.
+          </p>
+          <p>
+            With the full pipeline, Snapbot reaches a mean image quality score of <strong>0.7852</strong> &mdash; a
+            <strong>1.51&times; improvement</strong> over the aesthetic visual analysis (AVA) dataset baseline of 0.5189 &mdash;
+            and outperforms it in every individual category:
+          </p>
+        </div>
+        <div class="table-container">
+          <table class="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Score</th>
+                <th>Balancing Elements</th>
+                <th>DoF</th>
+                <th>Light</th>
+                <th>Object</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AVA Dataset</td>
+                <td>0.5189</td><td>0.0341</td><td>0.1152</td><td>0.0568</td><td>0.0941</td>
+              </tr>
+              <tr>
+                <td><strong>Snapbot</strong></td>
+                <td><strong>0.7852</strong></td><td><strong>0.8085</strong></td><td><strong>0.7318</strong></td><td><strong>0.7799</strong></td><td><strong>0.6360</strong></td>
+              </tr>
+              <tr>
+                <td>w/o EIGM</td>
+                <td>0.5521</td><td>0.7002</td><td>0.5910</td><td>0.5832</td><td>0.4217</td>
+              </tr>
+              <tr>
+                <td>w/o ISM, EIGM</td>
+                <td>0.3544</td><td>-0.062</td><td>0.1144</td><td>-0.1943</td><td>-0.1030</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="is-size-6 has-text-grey has-text-centered">
+          Overall mean score and individual evaluation metrics for the AVA dataset vs. Snapbot with and without ISM and EIGM.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End results -->
+
+
+<!-- Demo video -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Demo Video</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <iframe src="https://drive.google.com/file/d/13aQ0mCv9reuY-JInxXiSdqex67w7G5Ey/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo video -->
+
+
+<!-- Deployment carousel -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Snapbot in the Wild</h2>
+      <div class="content has-text-centered">
+        <p>
+          Snapbot was deployed as a robot photo studio at the 2023 Hanyang University ERICA Spring Festival,
+          photographing visitors and printing their pictures on the spot.
+        </p>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <img src="static/images/festival_visitor1.jpg" alt="A visitor standing in front of the Snapbot booth while the robot arm takes their photo" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            A visitor poses while Snapbot tracks them and composes the shot.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/festival_visitor2.jpg" alt="Snapbot autonomously photographing a festival visitor under the booth tent" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            The UR3 arm follows the subject autonomously throughout the session.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/festival_print.jpg" alt="A photo printer producing a stylized photo at the festival booth" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Enhanced and stylized photos are printed on the spot.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/festival_booth.jpg" alt="The Team PlanR booth with printed photos hanging on a display" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            The Team PlanR booth, with visitors' printed photos on display.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/festival_banner.jpg" alt="Festival banner reading 'An AI photo studio where a robot takes your picture' in Korean" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            &ldquo;An AI photo studio where a robot takes your picture&rdquo; &mdash; Team PlanR.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/festival_setup.jpg" alt="UR3 manipulator with camera mounted during setup" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Behind the scenes: the UR3 manipulator and camera rig during setup.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End deployment carousel -->
+
+
+<!-- Paper viewer -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Paper</h2>
+      <iframe src="static/pdfs/paper.pdf" width="100%" height="550">
+      </iframe>
+    </div>
+  </div>
+</section>
+<!-- End paper viewer -->
+
+
+<!-- Acknowledgements -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Acknowledgments</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work was supported in part by the National Research Foundation of Korea (NRF) grants
+            2022R1G1A1003531 and 2022R1A4A3018824, and the Institute of Information and Communications Technology
+            Planning and Evaluation (IITP) grant IITP-2024-2020-0-01741, funded by the Korea government (MSIT).
+            Robot hardware was developed with Wanggeon Lee of Team PlanR.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End acknowledgements -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{choi2024snapbot,
+  author    = {Choi, Chanyeok and Kim, Jeonghan and Nam, Yunjae and Lee, Youngmoon},
+  title     = {Snapbot : Enabling Dynamic Human Robot Interactions for Real-Time Computational Photography},
+  booktitle = {Companion of the 2024 ACM/IEEE International Conference on Human-Robot Interaction (HRI '24 Companion)},
+  year      = {2024},
+  pages     = {327--331},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  doi       = {10.1145/3610978.3640712},
+  url       = {https://doi.org/10.1145/3610978.3640712}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+  </main>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p class="has-text-centered">
+            &copy; 2024 Team PlanR &middot; Hanyang University
+          </p>
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
