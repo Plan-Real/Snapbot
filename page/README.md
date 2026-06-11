@@ -14,16 +14,17 @@ Project page for **"Snapbot: Enabling Dynamic Human Robot Interactions for Real-
 
 ## Deploying on GitHub Pages
 
-The page is self-contained static HTML. Either:
+Deployment is automated by `.github/workflows/pages.yml`: every push to `master` that
+touches `page/` uploads this folder as the Pages artifact and deploys it to
+<https://plan-real.github.io/Snapbot/>. Settings → Pages → Source must be set to
+**GitHub Actions**.
 
-1. **Project site from this folder** — copy `page/` contents to the repo root of a
-   `plan-real.github.io`-style repo, or
-2. **From this repo** — publish the `page/` folder with a GitHub Actions
-   `actions/upload-pages-artifact` step (Settings → Pages → Source: GitHub Actions), or
-   move/symlink it to `docs/` and select "Deploy from a branch" → `/docs`.
+> Note: "Deploy from a branch" does not work for this repo — the legacy Pages build
+> checks out submodules recursively and fails on `snapbot/snapbot_gym`, whose remote
+> is not publicly reachable. The workflow above checks out without submodules.
 
-If the final URL differs from `https://plan-real.github.io/Snapbot/`, update the
-`og:url`, `og:image`, `twitter:image`, `citation_pdf_url` and JSON-LD URLs in `index.html`.
+If the final URL ever changes, update the `og:url`, `og:image`, `twitter:image`,
+`citation_pdf_url` and JSON-LD URLs in `index.html`.
 
 ## Credits
 
